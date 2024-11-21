@@ -1,11 +1,11 @@
-variable "create_resource_group" {
-  description = "A flag to create the Resource Group"
+variable "create_ipg_resource_group" {
+  description = "A flag to create a Resource Group for the IP Groups"
   type        = bool
   default     = true
 }
 
 variable "resource_group" {
-  description = "The Resource Group to create"
+  description = "The Resource Group to add the IP Groups to or create if create_ipg_resource_group is true"
   type = object({
     name     = string
     location = string
