@@ -13,10 +13,10 @@ resource "azurerm_resource_group" "this" {
 resource "azurerm_ip_group" "this" {
   for_each = var.ipgroups
 
-  name                = each.value.name
+  name                = var.ipgroups[each.key].name
   location            = var.resource_group.location
   resource_group_name = var.resource_group.name
-  cidrs               = each.value.cidrs
+  cidrs               = var.ipgroups[each.key].cidrs
 
   tags = merge(
     try(var.tags),
